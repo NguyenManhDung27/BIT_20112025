@@ -17,6 +17,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <!-- Noto Sans for consistent Vietnamese rendering on desktop & mobile -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap&subset=vietnamese">
+    <!-- JetBrains Mono as a monospace web fallback if Cascadia Code is not available on the device -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap">
     <style>
         /* PC */
         @media (min-width: 1024px) {
@@ -746,8 +748,8 @@
 
         .textLetter h2 {
             font-size: 30px;
-            /* use Noto Sans for reliable Vietnamese support across devices, keep size unchanged */
-            font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+            /* prefer Cascadia Code; fall back to JetBrains Mono (web) then generic monospace */
+            font-family: 'Cascadia Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
             margin: 0;
         }
 
@@ -768,8 +770,8 @@
             text-align: center;
             padding: 0px 30px;
             margin-top: 10px;
-            /* switch to Noto Sans to ensure Vietnamese glyph coverage and consistent rendering */
-            font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+            /* Cascadia Code preferred; JetBrains Mono will be used on devices without Cascadia */
+            font-family: 'Cascadia Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
             position: initial;
             line-height: 1.4;
             word-break: break-word;
